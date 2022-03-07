@@ -1,13 +1,29 @@
-<form method="POST" id="" action="/users" accept-charset="UTF-8">
-    <label for="username">Username</label>
-    <input name="user[username]" placeholder="Username"></input><br />
+<!-- <form method="POST" id="" action="/users" accept-charset="UTF-8">
+     <label for="username">Username</label>
+     <input name="user[username]" placeholder="Username"></input><br />
 
-    <label for="email">Email</label>
-    <input name="user[email]" placeholder="Email"></input><br />
+     <label for="email">Email</label>
+     <input name="user[email]" placeholder="Email"></input><br />
 
-    <label for="password">Password</label>
-    <input type="password" name="user[password]" value="" />
+     <label for="password">Password</label>
+     <input type="password" name="user[password]" value="" />
 
-    <input type="hidden"  name="authenticity_token" value="<%= form_authenticity_token %>" />
-    <input type="submit" name="" value="Submit" />
-</form>
+     <input type="hidden"  name="authenticity_token" value="<%= form_authenticity_token %>" />
+     <input type="submit" name="" value="Submit" />
+     </form> -->
+
+<%= form_tag('/users', method: :post) do %>
+    <%= label_tag 'username' %>
+    <%= text_field_tag 'username', nil, placeholder: 'Username' %>
+    <br />
+
+    <%= label_tag 'email' %>
+    <%= email_field_tag 'email', 'email@example.com' %>
+    <br />
+
+    <%= label_tag 'password' %>
+    <%= password_field_tag 'password' %>
+    <br />
+
+    <%= button_tag 'Submit', type: 'submit' %>
+<% end %>
