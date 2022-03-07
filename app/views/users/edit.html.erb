@@ -1,5 +1,8 @@
 <h1>Edit User Form</h1>
 <%= form_with model: @user, method: :patch do |form| %>
+    <%= @user.errors.full_messages.each do |message| %>
+        <li> <%= message %> </id>
+    <% end %>
     <%= form.label :username %>
     <%= form.text_field :username %>
 
